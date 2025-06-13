@@ -1,0 +1,2513 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dienstplan 2026</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Allgemeine Stile */
+        body {
+            font-family: sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            vertical-align: top;
+            padding: 4px;
+            font-size: 10pt;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        .notiz-zelle {
+            height: 60px;
+        }
+
+        .trennstrich {
+            color: #999;
+            text-align: center;
+            margin: 4px 0;
+        }
+
+        /* Farb-Klassen (mit !important, um Bootstrap zu überschreiben) */
+        .farbe-frei {
+            background-color: #CCFFCC !important;
+        }
+
+        .farbe-ferien {
+            background-color: #FFFFCC !important;
+        }
+
+        .farbe-feiertag {
+            background-color: #FFCCCC !important;
+        }
+
+        /* --- NEU: Druck-Styling --- */
+        @page {
+            size: A4 landscape;
+            /* Definiert Papiergröße und Ausrichtung */
+            margin: 0.5cm;
+            /* Setzt den Druckrand */
+        }
+
+        @media print {
+            body {
+                background-color: white;
+            }
+
+            /* Weißen Hintergrund für den Druck erzwingen */
+            .container-fluid {
+                padding: 0 !important;
+            }
+
+            .monats-container {
+                page-break-after: always;
+                /* Erzwingt einen Seitenumbruch nach jedem Monat */
+            }
+
+            .mt-4,
+            .mb-3 {
+                margin: 0.5rem 0 !important;
+            }
+
+            /* Druck-Abstände anpassen */
+            hr.d-print-none {
+                display: none;
+            }
+
+            /* Trennlinien im Druck ausblenden */
+        }
+    </style>
+
+</head>
+
+<body class="bg-light">
+    <div class="container-fluid p-4">
+        <div class='monats-container'>
+            <h2 class='text-center mt-4 mb-3'>Januar 2026</h2>
+            <div class='table-responsive'>
+                <table class='table table-bordered text-start'>
+                    <thead class='table-secondary'>
+                        <tr>
+                            <th class='text-center'>Mo</th>
+                            <th class='text-center'>Di</th>
+                            <th class='text-center'>Mi</th>
+                            <th class='text-center'>Do</th>
+                            <th class='text-center'>Fr</th>
+                            <th class='text-center'>Sa</th>
+                            <th class='text-center'>So</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 farbe-feiertag'>
+                                <div><span class='fw-bold'>1</span> <small>Neujahr</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>2</span> <small>Weihnachtsferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>3</span> <small>Weihnachtsferien</small></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>4</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>5</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>6</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>7</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>8</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>9</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>10</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>11</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>12</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>13</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>14</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>15</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>16</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>17</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>18</span></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>19</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>20</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>21</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>22</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>23</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>24</span></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>25</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>26</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>27</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>28</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>29</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>30</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>31</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class='d-print-none mt-5'>
+        <div class='monats-container'>
+            <h2 class='text-center mt-4 mb-3'>Februar 2026</h2>
+            <div class='table-responsive'>
+                <table class='table table-bordered text-start'>
+                    <thead class='table-secondary'>
+                        <tr>
+                            <th class='text-center'>Mo</th>
+                            <th class='text-center'>Di</th>
+                            <th class='text-center'>Mi</th>
+                            <th class='text-center'>Do</th>
+                            <th class='text-center'>Fr</th>
+                            <th class='text-center'>Sa</th>
+                            <th class='text-center'>So</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>1</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>2</span> <small>Halbjahresferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>3</span> <small>Halbjahresferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>4</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>5</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>6</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>7</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>8</span></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>9</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>10</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>11</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>12</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>13</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>14</span></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>15</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>16</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>17</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>18</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>19</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>20</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>21</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>22</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>23</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>24</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>25</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>26</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>27</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>28</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>01.03.</span></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class='d-print-none mt-5'>
+        <div class='monats-container'>
+            <h2 class='text-center mt-4 mb-3'>März 2026</h2>
+            <div class='table-responsive'>
+                <table class='table table-bordered text-start'>
+                    <thead class='table-secondary'>
+                        <tr>
+                            <th class='text-center'>Mo</th>
+                            <th class='text-center'>Di</th>
+                            <th class='text-center'>Mi</th>
+                            <th class='text-center'>Do</th>
+                            <th class='text-center'>Fr</th>
+                            <th class='text-center'>Sa</th>
+                            <th class='text-center'>So</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>2</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>3</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>4</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>5</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>6</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>7</span></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>8</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>9</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>10</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>11</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>12</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>13</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>14</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>15</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>16</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>17</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>18</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>19</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>20</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>21</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>22</span></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>23</span> <small>Osterferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>24</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>25</span> <small>Osterferien</small></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>26</span> <small>Osterferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>27</span> <small>Osterferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>28</span> <small>Osterferien</small></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>29</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>30</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>31</span> <small>Osterferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                        </tr>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class='d-print-none mt-5'>
+        <div class='monats-container'>
+            <h2 class='text-center mt-4 mb-3'>April 2026</h2>
+            <div class='table-responsive'>
+                <table class='table table-bordered text-start'>
+                    <thead class='table-secondary'>
+                        <tr>
+                            <th class='text-center'>Mo</th>
+                            <th class='text-center'>Di</th>
+                            <th class='text-center'>Mi</th>
+                            <th class='text-center'>Do</th>
+                            <th class='text-center'>Fr</th>
+                            <th class='text-center'>Sa</th>
+                            <th class='text-center'>So</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>1</span> <small>Osterferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>2</span> <small>Osterferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-feiertag'>
+                                <div><span class='fw-bold'>3</span> <small>Karfreitag</small></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>4</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-feiertag'>
+                                <div><span class='fw-bold'>5</span> <small>Ostersonntag</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-feiertag'>
+                                <div><span class='fw-bold'>6</span> <small>Ostermontag</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>7</span> <small>Osterferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>8</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>9</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>10</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>11</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>12</span></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>13</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>14</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>15</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>16</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>17</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>18</span></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>19</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>20</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>21</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>22</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>23</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>24</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>25</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>26</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>27</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>28</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>29</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>30</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class='d-print-none mt-5'>
+        <div class='monats-container'>
+            <h2 class='text-center mt-4 mb-3'>Mai 2026</h2>
+            <div class='table-responsive'>
+                <table class='table table-bordered text-start'>
+                    <thead class='table-secondary'>
+                        <tr>
+                            <th class='text-center'>Mo</th>
+                            <th class='text-center'>Di</th>
+                            <th class='text-center'>Mi</th>
+                            <th class='text-center'>Do</th>
+                            <th class='text-center'>Fr</th>
+                            <th class='text-center'>Sa</th>
+                            <th class='text-center'>So</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 farbe-feiertag'>
+                                <div><span class='fw-bold'>1</span> <small>Tag der Arbeit</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>2</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>3</span></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>4</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>5</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>6</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>7</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>8</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>9</span></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>10</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>11</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>12</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>13</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-feiertag'>
+                                <div><span class='fw-bold'>14</span> <small>Christi Himmelfahrt</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>15</span> <small>Himmelfahrt</small></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>16</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>17</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>18</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>19</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>20</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>21</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>22</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>23</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-feiertag'>
+                                <div><span class='fw-bold'>24</span> <small>Pfingstsonntag</small></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-feiertag'>
+                                <div><span class='fw-bold'>25</span> <small>Pfingstmontag</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>26</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>27</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>28</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>29</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>30</span></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>31</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class='d-print-none mt-5'>
+        <div class='monats-container'>
+            <h2 class='text-center mt-4 mb-3'>Juni 2026</h2>
+            <div class='table-responsive'>
+                <table class='table table-bordered text-start'>
+                    <thead class='table-secondary'>
+                        <tr>
+                            <th class='text-center'>Mo</th>
+                            <th class='text-center'>Di</th>
+                            <th class='text-center'>Mi</th>
+                            <th class='text-center'>Do</th>
+                            <th class='text-center'>Fr</th>
+                            <th class='text-center'>Sa</th>
+                            <th class='text-center'>So</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>1</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>2</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>3</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>4</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>5</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>6</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>7</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>8</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>9</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>10</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>11</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>12</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>13</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>14</span></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>15</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>16</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>17</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>18</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>19</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>20</span></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>21</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>22</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>23</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>24</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>25</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>26</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>27</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>28</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>29</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>30</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class='d-print-none mt-5'>
+        <div class='monats-container'>
+            <h2 class='text-center mt-4 mb-3'>Juli 2026</h2>
+            <div class='table-responsive'>
+                <table class='table table-bordered text-start'>
+                    <thead class='table-secondary'>
+                        <tr>
+                            <th class='text-center'>Mo</th>
+                            <th class='text-center'>Di</th>
+                            <th class='text-center'>Mi</th>
+                            <th class='text-center'>Do</th>
+                            <th class='text-center'>Fr</th>
+                            <th class='text-center'>Sa</th>
+                            <th class='text-center'>So</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>1</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>2</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>3</span> <small>Sommerferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>4</span> <small>Sommerferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>5</span> <small>Sommerferien</small></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>6</span> <small>Sommerferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>7</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>8</span> <small>Sommerferien</small></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>9</span> <small>Sommerferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>10</span> <small>Sommerferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>11</span> <small>Sommerferien</small></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>12</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>13</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>14</span> <small>Sommerferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>15</span> <small>Sommerferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>16</span> <small>Sommerferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>17</span> <small>Sommerferien</small></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>18</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>19</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>20</span> <small>Sommerferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>21</span> <small>Sommerferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>22</span> <small>Sommerferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>23</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>24</span> <small>Sommerferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>25</span> <small>Sommerferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>26</span> <small>Sommerferien</small></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>27</span> <small>Sommerferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>28</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>29</span> <small>Sommerferien</small></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>30</span> <small>Sommerferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>31</span> <small>Sommerferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class='d-print-none mt-5'>
+        <div class='monats-container'>
+            <h2 class='text-center mt-4 mb-3'>August 2026</h2>
+            <div class='table-responsive'>
+                <table class='table table-bordered text-start'>
+                    <thead class='table-secondary'>
+                        <tr>
+                            <th class='text-center'>Mo</th>
+                            <th class='text-center'>Di</th>
+                            <th class='text-center'>Mi</th>
+                            <th class='text-center'>Do</th>
+                            <th class='text-center'>Fr</th>
+                            <th class='text-center'>Sa</th>
+                            <th class='text-center'>So</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>1</span> <small>Sommerferien</small></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>2</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>3</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>4</span> <small>Sommerferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>5</span> <small>Sommerferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>6</span> <small>Sommerferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>7</span> <small>Sommerferien</small></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>8</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>9</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>10</span> <small>Sommerferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>11</span> <small>Sommerferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>12</span> <small>Sommerferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>13</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>14</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>15</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>16</span></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>17</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>18</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>19</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>20</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>21</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>22</span></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>23</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>24</span> <small>Frei</small></div>
+                                <hr class='my-1'>
+                                <div><span class='fw-bold'>31</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>25</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>26</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>27</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>28</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>29</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>30</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class='d-print-none mt-5'>
+        <div class='monats-container'>
+            <h2 class='text-center mt-4 mb-3'>September 2026</h2>
+            <div class='table-responsive'>
+                <table class='table table-bordered text-start'>
+                    <thead class='table-secondary'>
+                        <tr>
+                            <th class='text-center'>Mo</th>
+                            <th class='text-center'>Di</th>
+                            <th class='text-center'>Mi</th>
+                            <th class='text-center'>Do</th>
+                            <th class='text-center'>Fr</th>
+                            <th class='text-center'>Sa</th>
+                            <th class='text-center'>So</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>1</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>2</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>3</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>4</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>5</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>6</span></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>7</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>8</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>9</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>10</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>11</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>12</span></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>13</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>14</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>15</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>16</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>17</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>18</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>19</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>20</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>21</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>22</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>23</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>24</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>25</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>26</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>27</span></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>28</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>29</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>30</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class='d-print-none mt-5'>
+        <div class='monats-container'>
+            <h2 class='text-center mt-4 mb-3'>Oktober 2026</h2>
+            <div class='table-responsive'>
+                <table class='table table-bordered text-start'>
+                    <thead class='table-secondary'>
+                        <tr>
+                            <th class='text-center'>Mo</th>
+                            <th class='text-center'>Di</th>
+                            <th class='text-center'>Mi</th>
+                            <th class='text-center'>Do</th>
+                            <th class='text-center'>Fr</th>
+                            <th class='text-center'>Sa</th>
+                            <th class='text-center'>So</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>1</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>2</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-feiertag'>
+                                <div><span class='fw-bold'>3</span> <small>Tag der Deutschen Einheit</small></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>4</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>5</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>6</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>7</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>8</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>9</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>10</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>11</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>12</span> <small>Herbstferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>13</span> <small>Herbstferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>14</span> <small>Herbstferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>15</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>16</span> <small>Herbstferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>17</span> <small>Herbstferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>18</span> <small>Herbstferien</small></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>19</span> <small>Herbstferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>20</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>21</span> <small>Herbstferien</small></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>22</span> <small>Herbstferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>23</span> <small>Herbstferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>24</span> <small>Herbstferien</small></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>25</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>26</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>27</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>28</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>29</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>30</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-feiertag'>
+                                <div><span class='fw-bold'>31</span> <small>Reformationstag</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class='d-print-none mt-5'>
+        <div class='monats-container'>
+            <h2 class='text-center mt-4 mb-3'>November 2026</h2>
+            <div class='table-responsive'>
+                <table class='table table-bordered text-start'>
+                    <thead class='table-secondary'>
+                        <tr>
+                            <th class='text-center'>Mo</th>
+                            <th class='text-center'>Di</th>
+                            <th class='text-center'>Mi</th>
+                            <th class='text-center'>Do</th>
+                            <th class='text-center'>Fr</th>
+                            <th class='text-center'>Sa</th>
+                            <th class='text-center'>So</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>1</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>2</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>3</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>4</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>5</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>6</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>7</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>8</span></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>9</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>10</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>11</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>12</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>13</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>14</span></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>15</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>16</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>17</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>18</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>19</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>20</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>21</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>22</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>23</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <hr class='my-1'>
+                                <div><span class='fw-bold'>30</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>24</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>25</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>26</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>27</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>28</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>29</span></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class='d-print-none mt-5'>
+        <div class='monats-container'>
+            <h2 class='text-center mt-4 mb-3'>Dezember 2026</h2>
+            <div class='table-responsive'>
+                <table class='table table-bordered text-start'>
+                    <thead class='table-secondary'>
+                        <tr>
+                            <th class='text-center'>Mo</th>
+                            <th class='text-center'>Di</th>
+                            <th class='text-center'>Mi</th>
+                            <th class='text-center'>Do</th>
+                            <th class='text-center'>Fr</th>
+                            <th class='text-center'>Sa</th>
+                            <th class='text-center'>So</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class='p-1 '></td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>1</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>2</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>3</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>4</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>5</span></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>6</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>7</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>8</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>9</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>10</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>11</span></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>12</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>13</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>14</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>15</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>16</span></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>17</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>18</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>19</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>20</span></div>
+                                <div><small>Sonntagsdienst (F41)</small></div>
+                                <div><small class='text-muted'>12:00 - 20:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 '>
+                                <div><span class='fw-bold'>21</span></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>22</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>23</span> <small>Weihnachtsferien</small></div>
+                                <div><small>Mittelschicht (F42)</small></div>
+                                <div><small class='text-muted'>12:00 - 18:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>24</span> <small>Weihnachtsferien</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-feiertag'>
+                                <div><span class='fw-bold'>25</span> <small>1. Weihnachtstag</small></div>
+                                <div><small>Frühschicht (F39)</small></div>
+                                <div><small class='text-muted'>06:00 - 14:40</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-feiertag'>
+                                <div><span class='fw-bold'>26</span> <small>2. Weihnachtstag</small></div>
+                                <div><small>Samstagsdienst (F43)</small></div>
+                                <div><small class='text-muted'>10:00 - 16:00</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>27</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='p-1 farbe-frei'>
+                                <div><span class='fw-bold'>28</span> <small>Frei</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>29</span> <small>Weihnachtsferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>30</span> <small>Weihnachtsferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 farbe-ferien'>
+                                <div><span class='fw-bold'>31</span> <small>Weihnachtsferien</small></div>
+                                <div><small>Spätschicht (S30)</small></div>
+                                <div><small class='text-muted'>14:40 - 23:30</small></div>
+                                <div class='notiz-zelle'></div>
+                            </td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                            <td class='p-1 '></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <hr class='d-print-none mt-5'>
+    </div>
+</body>
+
+</html>
